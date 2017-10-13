@@ -1,0 +1,31 @@
+
+<% if current_user %>
+
+<div class="col-md-8">
+
+  <%= image_tag @welcome.user.avatar_url, size: "230" %>
+
+  <p><%= @welcome.user.name %></p>
+  <p><%= @welcome.user.login %></p>
+  <p><%= @welcome.user.email %></p>
+
+</div>
+
+<div class="col-md-8">
+    <h3>Contribution Activity</h3>
+    <%= @welcome.feeds.timeline %>
+    <%= @welcome.feeds.user %>
+</div>
+
+<div class="col-md-8">
+    <h3>Repositories</h3>
+    <ul>
+      <% @welcome.repos.each do |repo| %>
+        <li><%= repo.name %></li>
+      <% end %>
+    </ul>
+</div>
+
+
+
+<% end %>

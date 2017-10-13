@@ -9,6 +9,31 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "ApiCurious", root_path, class: "navbar-brand" %>
+        <%= link_to "Issues", root_path, class: "navbar-brand" %>
+        <%= link_to "Explore", root_path, class: "navbar-brand" %>
+        <%= link_to "Marketplace", root_path, class: "navbar-brand" %>
+
+        <% if current_user %>
+          <p class="navbar-brand">Hello, <%= current_user.name %> <%= link_to "Logout", logout_path, method: :delete %></p>
+        <% else %>
+          <p class="navbar-brand"><%= link_to "Sign in with Github", github_login_path %></p>
+        <% end %>
+
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      </div>
+  </nav>
+
+
     <%= yield %>
   </body>
 </html>
